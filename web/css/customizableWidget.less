@@ -6,17 +6,37 @@
 	}
 	.fullScreenContainer{
 		min-height:800px;
-		height: 100%;
 		background-color: #CCC;
 	}
 	.mainScreen{
 		background-color: #CCC;
 		min-height:800px;
-		height: 100%;
 		.optionsCol{
 			min-height:800px;
 			padding:10px;
 			padding-top: 40px;
+
+			.titleText{
+				padding: 7px;
+			}
+
+		}
+		.premadeCol{
+			background-color: #ECECEC;
+			min-height:800px;
+			padding-top: 40px;
+			.titleText{
+				padding: 17px;
+			}
+			.premadeRow{
+				padding: 17px;
+				margin-bottom: 10px;
+				background-color: #FEFEFE;
+				cursor: pointer;
+				&:hover{
+					background-color:#DDD;
+				}
+			}
 		}
 	}
 

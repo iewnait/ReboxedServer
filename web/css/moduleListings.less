@@ -1,5 +1,6 @@
 .moduleListings{
 
+
 	.navbar{
 		-moz-box-shadow: 0px 3px 2px #000;
 		-webkit-box-shadow: 0px 3px 2px #000;
@@ -42,6 +43,12 @@
 				}
 
 				.solutionsRow{
+					&.greyOut{
+						background-color: #AAA;
+						&:hover{ 
+							background-color:#BBB;
+						}
+					}
 					background-color: #EEE;
 					border-bottom: 1px solid #484848;
 					&:hover{
@@ -137,3 +144,40 @@
 		}
 	}
 }
+
+	.popup_msg{
+		position:absolute;
+		z-index:10;
+		text-align:center;
+		color:#FF0000;
+		font: 14px Verdana, Arial, Helvetica, sans-serif;
+		border: 1px solid #666;
+		border-radius: 5px;
+		background-color: #FFF;
+		//background:url(bg_image.gif) bottom right no-repeat;
+		display:none;
+		.divData{
+			padding: 10px;
+			position:relative;
+			.blackTriangle{
+				position:absolute;
+				top: 9px;
+				left: -13px;
+				width: 0px;
+				height: 0px;
+				border-style: solid;
+				border-width: 13px 13px 13px 0px;
+				border-color: transparent #333 transparent transparent;
+			}
+			.triangle{
+				position:absolute;
+				top: 10px;
+				left: -12px;
+				width: 0px;
+				height: 0px;
+				border-style: solid;
+				border-width: 12px 12px 12px 0px;
+				border-color: transparent #FFF transparent transparent;
+			}
+		}
+	}
