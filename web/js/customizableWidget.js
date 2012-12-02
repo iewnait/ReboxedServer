@@ -12,7 +12,7 @@
     if(query){
       var solnRef = solnsRef.child(query);
       if(solnRef){
-        solnRef.on('value', function(solnVal) {
+        solnRef.once('value', function(solnVal) {
           if(solnVal.val()){
             loadEditPage(solnRef,solnVal.val(),query);
           }else{
@@ -221,7 +221,7 @@ break;
   }
 
   var global_solutionsRef = fbRef.child('solutions');
-  global_solutionsRef.on('value', function(snapshot) {
+  global_solutionsRef.once('value', function(snapshot) {
     var solutions = snapshot.val();
 
     updateSolutionsList(solutions);
