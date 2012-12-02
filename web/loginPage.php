@@ -16,6 +16,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
   $fb = new Firebase('rebox');
   if ($fb->isValidLogin($username, $password)) {
     $_SESSION['isLoggedIn'] = true;
+    $_SESSION['username'] = $username;
     header('Location: moduleListings.php');
     exit();
   } else {
