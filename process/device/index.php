@@ -61,12 +61,12 @@ else if($cmd == 'post')
 					// dont care
 				}
 
-				// also track the last data point, since REST api is chui
+				// also track the last timestamp
 				try {
 					\Httpful\Request::put(
 						$_firebase_uri . 'users/' . $username . '/devices/'.$devicename
-							.'/sensors/'.$key.'/last.json',
-						'{"' . $timestamp . '":"' . $value . '"}')
+							.'/last.json',
+						'"' . $timestamp . '"')
 						->send();
 				} catch (Exception $e2) {
 					// duncare
