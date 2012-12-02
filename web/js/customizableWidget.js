@@ -38,7 +38,7 @@
     console.log("editing");
     $("#soln_input_name").val(solnVal["1"].name);
     $("#soln_input_name").attr("disabled",true);
-    $("#soln_input_description").val(solnVal["1"].desc);
+    $("#soln_input_description").html(solnVal["1"].desc);
     window.isEditing = true;
     window.currentEdit = query;
     var blocks = solnVal["1"].blocks;
@@ -73,21 +73,24 @@
     return solnRef && solnRef.za && solnRef.ya && solnRef.va;
   }
   function solutionSavedPressed(){
-    console.log("daads");
     var solnName = $("#soln_input_name").val();
-    var solnDesc = $("#soln_input_description").html();
+    var solnDesc = $("#soln_input_description").val();
+    console.log(solnDesc);
     var e = document.getElementById("devicesDropdown");
     var solnDevice = (!isEditing)? null: e.options[e.selectedIndex].value;
-        
 
-    solnsRef.child(solnName).child("1").set({desc:solnDesc,name:solnName,device:solnDevice},function(yay){
+    solnsRef.child(solnName).child("1").update({desc:solnDesc,name:solnName,device:solnDevice},function(yay){
       console.log(yay);
       if(window.isEditing){
-        document.location="moduleListings.php";
+        //document.location="moduleListings.php";
       }else{
         document.location="customizableWidget.html?q="+solnName;
       }
     });
+
+    var solnActiveRef = userRef.child('solutions_active');
+    
+    solnActiveRef.child(solnName).update({device_tagged:solnDevice,status:"active"});
     return false;
   }
   function getQuery(){
@@ -199,11 +202,18 @@
   function Block(params){
     var block_type = params.id;
     function postToFirebase(){
-      solnsRef.child(window.currentEdit).child("1").child("blocks").push().set(params,function(yay){
-        location.reload();
-      });
-    }
 
+      solnsRef.child(window.currentEdit).child("1").child("blocks").once('value', function(snapshot) {
+        var blockarr = snapshot.val();
+        if(!blockarr) blockarr=[];
+        console.log(blockarr.length);
+        console.log(currentEdit);
+        userRef.child('solutions_active').child(window.currentEdit).child("blocks").child(blockarr.length).set(params,function(){console.log("haha");});
+        solnsRef.child(window.currentEdit).child("1").child("blocks").child(blockarr.length).set(params,function(yay){
+        location.reload();
+      });});
+      
+      };
     function solutionBlockHtml(){
       var html ='<div class="stepRow">';
       switch (block_type){
