@@ -20,6 +20,9 @@ body {
   font-size: 0.9em;
   font-weight: 100;
 }
+a {
+  cursor: pointer;
+}
 a.white {
   color: #fff;
   text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.8);
@@ -174,6 +177,7 @@ a.white:hover {
   vertical-align: bottom;
 }
 .moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow {
+  cursor: pointer;
   background-color: #EEE;
   border-bottom: 1px solid #484848;
 }
@@ -367,4 +371,5 @@ a.white:hover {
 }
 .customizableWidget .mainScreen .premadeCol .premadeRow:hover {
   background-color: #DDD;
+  cursor: pointer;
 }

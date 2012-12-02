@@ -24,8 +24,8 @@ $(document).ready(function() {
 
   var fbRef = new Firebase('https://rebox.firebaseio.com');
 
-  var user_id = userId(); 
-
+  var user_id = userId();
+  var userRef = fbRef.child('users').child(""+user_id);
   function userId() {
     var req = new XMLHttpRequest();
 
@@ -37,7 +37,7 @@ $(document).ready(function() {
     }
   }
 
-  var devicesRef = fbRef.child('users').child(""+user_id).child('devices');
+  var devicesRef = userRef.child('devices');
   devicesRef.on('value', function(snapshot) {
     var devices = snapshot.val();
 
@@ -55,12 +55,68 @@ $(document).ready(function() {
 
   function clear(element) {
     element.innerHTML = "";
-  }
+  } 
 
   function addDeviceNode(deviceName, parent) {
     var child = document.createElement('div');
     child.className = "deviceDetails green";
     child.innerHTML = "<b>" + deviceName + "</b><br />Working<br /><div style='text-align:right;'><a href='#'>Location</a></div>";
     var newChild = parent.appendChild(child);
+  }
+
+  var solutionsRef = userRef.child("solutions_active");
+  // solutionsRef.on('value', function(snapshot) {
+  //   var solutions = snapshot.val();
+
+  //   updateSolutionsList(solutions);
+  // });
+
+  solutionsRef.on('child_added', function(snapshot) {
+    var solnRef = snapshot.val();
+    var solnName = snapshot.name();
+    var solnTable = document.getElementById('solutions_table');
+
+    insertSolution(solnRef, solnName, solnTable);
+  });
+
+  function insertSolution(solnRef, solnName, solnTable) {
+    var solutionsFooter = document.getElementById('solutions_footer');
+
+    var solRow = document.createElement('div');
+    solRow.className = "solutionsRow container-fluid";
+    solRow = solnTable.insertBefore(solRow, solutionsFooter);
+
+    var mainDetails = document.createElement('div');
+    mainDetails.className = "mainDetails row-fluid";
+    mainDetails = solRow.appendChild(mainDetails);
+
+    var statusContainer = document.createElement('div');
+    var solnContainer = document.createElement('div');
+    var deviceContainer = document.createElement('div');
+
+    statusContainer.className = "statusContainer span2";
+    var status = document.createElement('div');
+    status.className = "status green";
+    status.innerHTML = solnRef.status;
+    status = statusContainer.appendChild(status);
+    statusContainer = mainDetails.appendChild(statusContainer);
+
+    solnContainer.className = "solutionContainer span5";
+    var soln = document.createElement('div');
+    soln.className = "solution";
+    soln.innerHTML = solnName;
+    soln = solnContainer.appendChild(soln);
+    solnContainer = mainDetails.appendChild(solnContainer);
+
+    deviceContainer.className = "deviceContainer span5";
+    var device = document.createElement('div')
+    device.className = "device";
+    device.innerHTML = solnRef.device_tagged;
+    device = deviceContainer.appendChild(device);
+    deviceContainer = mainDetails.appendChild(deviceContainer);
+
+    var expandDetails = document.createElement('h')
+    expandDetails.className = "expand-details";
+    expandDetails = solRow.appendChild(expandDetails);
   }
 });
