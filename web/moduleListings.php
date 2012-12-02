@@ -33,7 +33,7 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
         <div class="titleText">
           <h1 style="color: #CCC">&nbsp;Dashboard</h1>
         </div>
-        <div class="solutionsTable">
+        <div id="solutions_table" class="solutionsTable">
           <!-- Header -->
           <div class="solutionsHeader container-fluid">
             <div class="headerDetails row-fluid">
@@ -117,7 +117,7 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
             <div class="expand-details">
             </div>
           </div>
-          <div class="solutionsFooter container-fluid">
+          <div id="solutions_footer" class="solutionsFooter container-fluid">
             <div class="footerDetails row-fluid">
               <a href="#">Add Solution</a>
             </div>
