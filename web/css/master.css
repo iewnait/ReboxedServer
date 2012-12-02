@@ -177,6 +177,12 @@ a.white:hover {
   background-color: #EEE;
   border-bottom: 1px solid #484848;
 }
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow.greyOut {
+  background-color: #AAA;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow.greyOut:hover {
+  background-color: #BBB;
+}
 .moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow:hover {
   background-color: #DDD;
 }
@@ -259,6 +265,41 @@ a.white:hover {
 .moduleListings .mainScreen .devicesCol .deviceDetails.grey {
   border-color: #a4a4a4;
 }
+.popup_msg {
+  position: absolute;
+  z-index: 10;
+  text-align: center;
+  color: #FF0000;
+  font: 14px Verdana, Arial, Helvetica, sans-serif;
+  border: 1px solid #666;
+  border-radius: 5px;
+  background-color: #FFF;
+  display: none;
+}
+.popup_msg .divData {
+  padding: 10px;
+  position: relative;
+}
+.popup_msg .divData .blackTriangle {
+  position: absolute;
+  top: 9px;
+  left: -13px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 13px 13px 13px 0px;
+  border-color: transparent #333 transparent transparent;
+}
+.popup_msg .divData .triangle {
+  position: absolute;
+  top: 10px;
+  left: -12px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 12px 12px 12px 0px;
+  border-color: transparent #FFF transparent transparent;
+}
 .customizableWidget .navbar {
   -moz-box-shadow: 0px 3px 2px #000;
   -webkit-box-shadow: 0px 3px 2px #000;
@@ -266,16 +307,64 @@ a.white:hover {
 }
 .customizableWidget .fullScreenContainer {
   min-height: 800px;
-  height: 100%;
   background-color: #CCC;
 }
 .customizableWidget .mainScreen {
   background-color: #CCC;
   min-height: 800px;
-  height: 100%;
 }
 .customizableWidget .mainScreen .optionsCol {
   min-height: 800px;
   padding: 10px;
   padding-top: 40px;
+}
+.customizableWidget .mainScreen .optionsCol .titleText {
+  padding: 7px;
+}
+.customizableWidget .mainScreen .optionsCol .stepsTable {
+  width: 550px;
+  background-color: #DDD;
+}
+.customizableWidget .mainScreen .optionsCol .stepsTable .stepHeader {
+  background-color: #AAA;
+  padding: 10px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.customizableWidget .mainScreen .optionsCol .stepsTable .stepRow {
+  padding: 10px;
+  border-bottom: 1px solid #AAA;
+}
+.customizableWidget .mainScreen .optionsCol .stepsTable .stepFooter {
+  *zoom: 1;
+  background-color: #AAA;
+  padding: 10px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.customizableWidget .mainScreen .optionsCol .stepsTable .stepFooter:before,
+.customizableWidget .mainScreen .optionsCol .stepsTable .stepFooter:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.customizableWidget .mainScreen .optionsCol .stepsTable .stepFooter:after {
+  clear: both;
+}
+.customizableWidget .mainScreen .premadeCol {
+  background-color: #ECECEC;
+  min-height: 800px;
+  padding-top: 40px;
+}
+.customizableWidget .mainScreen .premadeCol .titleText {
+  padding: 17px;
+}
+.customizableWidget .mainScreen .premadeCol .premadeRow {
+  padding: 17px;
+  margin-bottom: 10px;
+  background-color: #FEFEFE;
+  cursor: pointer;
+}
+.customizableWidget .mainScreen .premadeCol .premadeRow:hover {
+  background-color: #DDD;
 }

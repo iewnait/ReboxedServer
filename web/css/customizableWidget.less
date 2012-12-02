@@ -6,17 +6,59 @@
 	}
 	.fullScreenContainer{
 		min-height:800px;
-		height: 100%;
 		background-color: #CCC;
 	}
 	.mainScreen{
 		background-color: #CCC;
 		min-height:800px;
-		height: 100%;
 		.optionsCol{
 			min-height:800px;
 			padding:10px;
 			padding-top: 40px;
+
+			.titleText{
+				padding: 7px;
+			}
+
+			.stepsTable{
+				width: 550px;
+				background-color: #DDD;
+				.stepHeader{
+					background-color: #AAA;
+					padding: 10px;
+					border-top-right-radius: 5px;
+					border-top-left-radius: 5px;
+				}
+				.stepRow{
+					padding: 10px;
+					border-bottom: 1px solid #AAA;
+				}
+				.stepFooter{
+					.clearfix();
+					background-color: #AAA;
+					padding: 10px;
+					border-bottom-right-radius: 5px;
+					border-bottom-left-radius: 5px;
+				}
+			}
+
+		}
+		.premadeCol{
+			background-color: #ECECEC;
+			min-height:800px;
+			padding-top: 40px;
+			.titleText{
+				padding: 17px;
+			}
+			.premadeRow{
+				padding: 17px;
+				margin-bottom: 10px;
+				background-color: #FEFEFE;
+				cursor: pointer;
+				&:hover{
+					background-color:#DDD;
+				}
+			}
 		}
 	}
 

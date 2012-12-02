@@ -126,7 +126,7 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
 
         </div>
       </div>
-      <div class="devicesCol span3">
+      <div id="devicesCol" class="devicesCol span3">
         <div>
           <h4 style="color: #CCC; padding: 10px;">Device List</h4>
         </div>
@@ -156,6 +156,7 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
 
   <!-- Javascript -->
   <script type="text/javascript" src="external/jQuery/jquery-1.8.3.min.js"></script>
+  <script type='text/javascript' src='https://static.firebase.com/v0/firebase.js'></script>
   <script type="text/javascript" src="js/moduleListings.js"></script>
 </body>
 </html>
