@@ -9,7 +9,7 @@
 <body class="customizableWidget">
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
-			<a class="brand" href="#"><img src="images/logosmall.png" style="height: 15px; padding-left: 35px;"/></a>
+			<a class="brand" href="moduleListings.html"><img src="images/logosmall.png" style="height: 15px; padding-left: 35px;"/></a>
 			<ul class="nav pull-right">
 				<li class="active"><a href="#">Dashboard</a></li>
 				<li><a href="#">Profile</a></li>
@@ -87,9 +87,46 @@
 						Action: Scream like a mofo. Interval.<br/>
 						Interval: Beep like fuck.<br/>
 					</div>
+					<div class="addRow">
+						
+						</br>
+						<form class="form-horizontal">
+							<div class="control-group">
+							    <label class="control-label" for="inputPassword">Type</label>
+							    <div class="controls">
+							    	<select>
+										<option>Condition</option>
+										<option>Action</option>
+									</select>
+							    </div>
+						  	</div>
+							<div class="control-group">
+							    <label class="control-label" for="inputPassword">Threshold</label>
+							    <div class="controls">
+							    	<input style="margin-top: 9px; width:200px;" type="range" min="5" max="150" step="5" value="100">
+							    </div>
+						  	</div>
+						  	<div class="control-group">
+							    <label class="control-label" for="inputPassword">Actions</label>
+							    <div class="controls">
+							    	<select>
+										<option>Send Message To Phone</option>
+										<option>Emit Sound</option>
+										<option>Make Noise</option>
+									</select>
+							    </div>
+						  	</div>
+							<div class="control-group">
+								<div class="controls">
+									<button type="submit" class="btn">Add</button>
+								</div>
+							</div>
+						</form>
 
+					</div>
 					<div class="stepFooter">
-						<span class="pull-right">[+] Add Step</span>
+						<a class="white pull-right" style="margin-top:2px; margin-left:4px;">New Component</a>
+						<img class="pull-right" src="images/componentIcon.png" width="25px"/>
 					</div>
 				</div>
 
