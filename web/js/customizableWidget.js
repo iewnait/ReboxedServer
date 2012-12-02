@@ -243,7 +243,7 @@
   }
 
   var global_solutionsRef = fbRef.child('solutions');
-  global_solutionsRef.on('value', function(snapshot) {
+  global_solutionsRef.once('value', function(snapshot) {
     var solutions = snapshot.val();
 
     updateSolutionsList(solutions);
@@ -258,7 +258,17 @@
 
       var data = solutions[solution][1];
       div.innerHTML = "Name: " + data.name + '<br />' + data.desc;
-      
+      var k = data.name;
+      (function (k) {
+      div.onclick= function (){
+        reloadWithQuery(k);
+      };
+    })(k);
+
+
       premadeCol.appendChild(div);
     }
+  }
+  function reloadWithQuery(string){
+    document.location="customizableWidget.html?q="+string;
   }
