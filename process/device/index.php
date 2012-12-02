@@ -41,12 +41,23 @@ if($cmd == 'auth')
 else if($cmd == 'post')
 {
 	try {
+		$timestamp = time();
+
+		// also track the last timestamp
+		try {
+			\Httpful\Request::put(
+				$_firebase_uri . 'users/' . $username . '/devices/'.$devicename
+					.'/last.json',
+				'"' . $timestamp . '"')
+				->send();
+		} catch (Exception $e2) {
+			// duncare
+		}
+
 		foreach($_POST as $key => $value)
 		{
 			if($key != 'cmd' && $key != 'user' && $key != 'device')
 			{
-				$timestamp = time();
-
 				// PUT DATA INTO FIREBASE
 				// write value to db lar!
 				try {
@@ -59,17 +70,6 @@ else if($cmd == 'post')
 						->send();
 				} catch(Exception $e1) {
 					// dont care
-				}
-
-				// also track the last timestamp
-				try {
-					\Httpful\Request::put(
-						$_firebase_uri . 'users/' . $username . '/devices/'.$devicename
-							.'/last.json',
-						'"' . $timestamp . '"')
-						->send();
-				} catch (Exception $e2) {
-					// duncare
 				}
 			}
 		}

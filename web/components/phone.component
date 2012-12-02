@@ -1,0 +1,24 @@
+<?php
+
+$rebox_components['phone'] = array(
+	'name' => 'Phone call/sms',
+	
+	'description' => 'Phone call or SMS',
+	
+	'type' => 'action',
+	
+	'params' =>
+		array('number','message','suppression_delay'),
+	
+	'gui' =>
+		'<form>Phone number: <input type="text" name="number">+1-xxx-xxxx</input>' .
+		'<br />Subject: <input type="text" name="message">Your sensor has tripped!</input>' .
+		'<br />Don\'t notify me again until <input type="text" name="suppression_delay">300</input> seconds later.' .
+		'</form><br /> Some javascript and glue logic goes here.',
+		
+	'execute' =>
+		function ($paramlist) {
+			// add Twillio API
+			return true;
+		}
+);

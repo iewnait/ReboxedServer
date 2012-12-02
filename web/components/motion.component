@@ -1,0 +1,53 @@
+<?php
+
+$rebox_components['motion'] = array(
+	'name' => 'Motion Sensor',
+	
+	'description' => 'Checks for activity on the motion sensor.',
+	
+	'type' => 'condition',
+	
+	'params' =>
+		array('percentage','gtlt'),
+	
+	'gui' =>
+		'<form>Activate when '.
+		'<select name="gtlt"><option value="lt">&lt;</option><option value="gt">&gt;</option></select>' .
+		' <input type="text" name="percentage">50</input>%' .
+		'</form><br /> Some javascript and glue logic goes here.',
+	
+	'execute' =>
+		function ($paramlist) {
+			global $_firebase_uri;
+			global $username;
+			
+			// get last updated timestamp
+			$laststamp = \Httpful\Request::get(
+				$paramlist['_firebase_uri'] . 'users/' . $paramlist['username'] . '/devices/' . $devicename .'/last.json')
+                ->send();
+			
+			// ->autoParse(false)
+			
+			$laststamp = $laststamp->body;
+				
+			// get last sensor value
+			
+			$lastvalue = \Httpful\Request::get(
+				$paramlist['_firebase_uri'] . 'users/' . $paramlist['username'] . '/devices/' . $paramlist['devicename'] .
+				'/sensors/motion/data/' . $laststamp . '.json')
+                ->send();
+			$lastvalue = $lastvalue->body;
+			
+			if($paramlist['gtlt'] == 'gt') {
+				if($lastvalue > $percentage)
+					return true;
+				else
+					return false;
+			} else {
+				if($lastvalue < $percentage)
+					return true;
+				else
+					return false;
+			}
+		}
+);

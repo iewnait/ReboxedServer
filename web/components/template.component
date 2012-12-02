@@ -1,0 +1,20 @@
+<?php
+
+$rebox_components['template'] = array(
+	'name' => 'Template',
+	
+	'description' => 'Template',
+	
+	'type' => 'action',
+	
+	'params' =>
+		array(),
+	
+	'gui' =>
+		'Template component',
+	
+	'execute' =>
+		function ($paramlist) {
+			return true;
+		}
+);
