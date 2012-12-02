@@ -8,6 +8,7 @@ $(document).ready(function() {
 		$('.solutionsRow').removeClass('greyOut');
 	});
 
+  $('.inlinesparkline').sparkline('html',{width: '100px'}); 
 
 	$('.solutionsRow').click(function(pageEvent){
 		$('.solutionsRow').removeClass('greyOut');
