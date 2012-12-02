@@ -4,7 +4,7 @@ $(document).ready(function() {
 	var openPopup = false;
 
 	$('html').click(function(pageEvent){
-		$('#poppup_div').css({left:leftVal,top:topVal}).hide();
+		$('#poppup_div').hide();
 		$('.solutionsRow').removeClass('greyOut');
 	});
 
