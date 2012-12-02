@@ -1,5 +1,7 @@
 <?php
 
+require_once "Mail.php";
+
 include('../includes/httpful.phar');
 include('../includes/common.inc');
 
@@ -94,25 +96,149 @@ else if($cmd == 'post')
 
 		if($solution->status <> 'active') continue;
 
+		// check if device matches solution device
+		if($solution->device_tagged <> $devicename) continue;
+
 		try {
 
 		// retrieve solution via key
-		$solution = \Httpful\Request::get(
+		$gsolution = \Httpful\Request::get(
 	                $_firebase_uri . 'solutions/' . $key . '/1/.json')
 	                ->send();
 
 		// get array of blocks
-		$solution = $solution->body->blocks;
+		$gsolution = $gsolution->body->blocks;
 
-		$numblocks = sizeof($solution);
+		$numblocks = sizeof($gsolution);
+
+		$returnvalue = TRUE;
 
 		for($i = 0; $i < $numblocks; ++$i) {
-			$block = $solution[$i];
+
+			try {
+
+			$gblock = $gsolution[$i];
+			$block = $solution->blocks[$i];
+
 			
+			//
+			switch($gblock->id) {
+			case "accel":
+				if($block->gtlt == 'gt') {
+					if($lastsensor['accel'] > $block->velocity)
+						$returnvalue = TRUE;
+					else
+						$returnvalue = FALSE;
+
+				} else { // lt
+					if($lastsensor['accel'] < $block->velocity)
+						$returnvalue = TRUE;
+					else
+						$returnvalue = FALSE;
+				}
+				break;
+
+			case "smoke":
+				// convert to %
+				$value = $lastsensor['smoke'] / 3.3 * 100.0;
+                                if($block->gtlt == 'gt') {
+                                        if($value > $block->percentage)
+                                                $returnvalue = TRUE;
+                                        else
+                                                $returnvalue = FALSE;
+
+                                } else { // lt
+                                        if($value < $block->percentage)
+                                                $returnvalue = TRUE;
+                                        else
+                                                $returnvalue = FALSE;
+                                }
+				break;
+			
+			case "motion":
+				// convert to %
+				$value = $lastsensor['motion'] / 3.3 * 100.0;
+				if($block->gtlt == 'gt') {
+                                        if($value > $block->percentage)
+                                                $returnvalue = TRUE;
+                                        else
+                                                $returnvalue = FALSE;
+
+                                } else { // lt
+                                        if($value < $block->percentage)
+                                                $returnvalue = TRUE;
+                                        else
+                                                $returnvalue = FALSE;
+                                }
+				break;
+
+			case "email":
+				// Check for suppression
+				if(isset($block->suppression_laststamp))
+					$laststamp = $block->suppression_laststamp;
+				else
+					$laststamp = 0;
+
+				if(time() - $laststamp > $block->suppression_delay) {
+					$laststamp = time();
+
+					// PEAR Mail
+					// require_once "Mail.php"
+			
+					$headers = array ("From" => "nuscvwo@gmail.com",
+	        		        	"To" => $block->address,
+					        "Subject" => $block->subject);
+				  
+					Mail::factory("smtp",
+						array ('host' => "smtp.gmail.com",
+						'auth' => true,
+				                    'username' => "nuscvwo@gmail.com",
+			        	            'password' => "vwo2007vwo2007"))
+							->send($block->address, $headers, $block->content .
+							"\nSmoke: " . $lastsensor['smoke'] / 3.3 * 100.0 . '%' .
+							"\nMotion: " . $lastsensor['motion'] / 3.3 * 100.0 .'%' .
+							"\nAccel: " . $lastsensor['accel'] . 'm/s^2'
+					);
+
+					// write $laststamp back to user solution block $i suppression_laststamp
+					try {
+					\Httpful\Request::put(
+                                                $_firebase_uri . 'users/' . $username . '/solutions_active/'
+						. $key .'/blocks/'.$i.'/suppression_laststamp/.json',
+						'"' . $laststamp . '"')
+                                                ->send();
+					}
+					catch (Exception $e6) { print_r($e6); }
+
+
+				}
+
+				$returnvalue = TRUE;
+				break;
+
+			case "phone":
+
+				break;
+
+			default:
+				// no such element?
+				break;
+			}
+	
+			//echo $returnvalue . " HAI \n\n";
+
+			// last block returned false
+			if($returnvalue == FALSE) break;
+
+			} catch(Exception $e5) {
+				echo 'something broke, exit for loop';
+				break;
+			}
 		}
 
 		} catch(Exception $e4) {
-			// cant find? ignore
+			//echo 'cant find? ignore';
+			//print_r($e4);
 		}
 
 
