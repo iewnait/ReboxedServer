@@ -1,0 +1,39 @@
+<?php
+
+$rebox_components['email'] = array(
+	'name' => 'Send Email',
+	
+	'description' => 'Sends an email.',
+	
+	'type' => 'action',
+	
+	'params' =>
+		array('address','subject','content','suppression_delay'),
+	
+	'gui' =>
+		'Use jquery UI if you have to...'.
+		'<form>Address: <input type="text" name="address">foo@bar.com</input>' .
+		'<br />Subject: <input type="text" name="subject">Rebox Notification</input>' .
+		'<br />Message: <input type="text" name="content">Oh noes!</input>' .
+		'<br />Don\'t notify me again until <input type="text" name="suppression_delay">300</input> seconds later.' .
+		'</form><br /> Some javascript and glue logic goes here.',
+	
+	'execute' =>
+		function ($paramlist) {
+			// PEAR Mail
+			// require_once "Mail.php"
+			
+			$headers = array ("From" => "nuscvwo@gmail.com",
+                  "To" => $paramlist['address'],
+                  "Subject" => $paramlist['subject']);
+				  
+			Mail::factory("smtp",
+				array ('host' => "smtp.gmail.com",
+					'auth' => true,
+                    'username' => "nuscvwo@gmail.com",
+                    'password' => "vwo2007vwo2007"))
+						->send($paramlist['address'], $headers, $paramlist['content']);
+						
+			return true;
+		}
+);
