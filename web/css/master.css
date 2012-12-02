@@ -321,6 +321,36 @@ a.white:hover {
 .customizableWidget .mainScreen .optionsCol .titleText {
   padding: 7px;
 }
+.customizableWidget .mainScreen .optionsCol .stepsTable {
+  width: 550px;
+  background-color: #DDD;
+}
+.customizableWidget .mainScreen .optionsCol .stepsTable .stepHeader {
+  background-color: #AAA;
+  padding: 10px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+.customizableWidget .mainScreen .optionsCol .stepsTable .stepRow {
+  padding: 10px;
+  border-bottom: 1px solid #AAA;
+}
+.customizableWidget .mainScreen .optionsCol .stepsTable .stepFooter {
+  *zoom: 1;
+  background-color: #AAA;
+  padding: 10px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.customizableWidget .mainScreen .optionsCol .stepsTable .stepFooter:before,
+.customizableWidget .mainScreen .optionsCol .stepsTable .stepFooter:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.customizableWidget .mainScreen .optionsCol .stepsTable .stepFooter:after {
+  clear: both;
+}
 .customizableWidget .mainScreen .premadeCol {
   background-color: #ECECEC;
   min-height: 800px;
