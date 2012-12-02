@@ -21,17 +21,42 @@ body {
   font-weight: 100;
 }
 .loginPage .loginPod {
-  background-color: #135282;
+  background: #031428;
+  /* Old browsers */
+
+  background: -moz-linear-gradient(top, #031428 1%, #062646 33%, #062646 74%, #031428 98%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #031428), color-stop(33%, #062646), color-stop(74%, #062646), color-stop(98%, #031428));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-linear-gradient(top, #031428 1%, #062646 33%, #062646 74%, #031428 98%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-linear-gradient(top, #031428 1%, #062646 33%, #062646 74%, #031428 98%);
+  /* Opera 11.10+ */
+
+  background: -ms-linear-gradient(top, #031428 1%, #062646 33%, #062646 74%, #031428 98%);
+  /* IE10+ */
+
+  background: linear-gradient(to bottom, #031428 1%, #062646 33%, #062646 74%, #031428 98%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#031428', endColorstr='#031428', GradientType=0);
+  /* IE6-9 */
+
   color: #FFFFFF;
-  border: 1px solid #666666;
   border-radius: 5px;
+  -moz-box-shadow: 3px 3px 3px #0d0d0f;
+  -webkit-box-shadow: 3px 3px 3px #0d0d0f;
+  box-shadow: 3px 3px 3px #0d0d0f;
 }
 .loginPage .loginPod .headerDiv {
   padding: 10px 30px;
 }
 .loginPage .loginPod .bodyDiv {
-  padding: 10px 30px;
-  background-color: #FFFFFF;
+  padding: 20px 80px;
+  background-color: #eee;
   color: #000000;
 }
 .loginPage .loginPod .bodyDiv form {
@@ -47,9 +72,20 @@ body {
 .loginPage .loginPod .bodyDiv form:after {
   clear: both;
 }
+.loginPage .loginPod .bodyDiv form input {
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  height: 29px;
+}
+.loginPage .loginPod .bodyDiv form button {
+  height: 35px;
+  width: 120px;
+}
 .loginPage .loginPod .footerDiv {
   *zoom: 1;
-  padding: 10px 30px;
+  padding: 22px 80px;
 }
 .loginPage .loginPod .footerDiv:before,
 .loginPage .loginPod .footerDiv:after {
@@ -60,29 +96,32 @@ body {
 .loginPage .loginPod .footerDiv:after {
   clear: both;
 }
+.loginPage .loginPod .footerDiv p {
+  margin-bottom: 0;
+}
 .radialBackground {
-  background: #429ee5;
+  background: #20232b;
   /* Old browsers */
 
-  background: -moz-radial-gradient(center, ellipse cover, #429ee5 0%, #2989d8 33%, #1e5799 100%);
+  background: -moz-radial-gradient(center, ellipse cover, #20232b 0%, #0d0d0f 100%);
   /* FF3.6+ */
 
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #429ee5), color-stop(33%, #2989d8), color-stop(100%, #1e5799));
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #20232b), color-stop(100%, #0d0d0f));
   /* Chrome,Safari4+ */
 
-  background: -webkit-radial-gradient(center, ellipse cover, #429ee5 0%, #2989d8 33%, #1e5799 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, #20232b 0%, #0d0d0f 100%);
   /* Chrome10+,Safari5.1+ */
 
-  background: -o-radial-gradient(center, ellipse cover, #429ee5 0%, #2989d8 33%, #1e5799 100%);
+  background: -o-radial-gradient(center, ellipse cover, #20232b 0%, #0d0d0f 100%);
   /* Opera 12+ */
 
-  background: -ms-radial-gradient(center, ellipse cover, #429ee5 0%, #2989d8 33%, #1e5799 100%);
+  background: -ms-radial-gradient(center, ellipse cover, #20232b 0%, #0d0d0f 100%);
   /* IE10+ */
 
-  background: radial-gradient(ellipse at center, #429ee5 0%, #2989d8 33%, #1e5799 100%);
+  background: radial-gradient(ellipse at center, #20232b 0%, #0d0d0f 100%);
   /* W3C */
 
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#429ee5', endColorstr='#1e5799', GradientType=1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#20232b', endColorstr='#0d0d0f', GradientType=1);
   /* IE6-9 fallback on horizontal gradient */
 
 }
