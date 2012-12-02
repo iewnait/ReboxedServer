@@ -64,7 +64,17 @@ $(document).ready(function() {
   function addDeviceNode(deviceName, parent) {
     var child = document.createElement('div');
     child.className = "deviceDetails green";
-    child.innerHTML = "<b>" + deviceName + "</b><br />Working<br /><div style='text-align:right;'>          Sensor Activity </br>           Motion Sensor:<span class='inlinesparkline pull-right'>1,4,4,7,5,9,10</span><br/>           Heat Sensor:<span class='inlinesparkline pull-right'>1,4,4,7,5,9,10</span><br/>           Wetness Sensor:<span class='inlinesparkline pull-right'>1,4,4,7,5,9,10</span></br/>";
+
+    var devSensors = devicesRef.child(deviceName).child('sensors');
+    var accel = devSensors.child('accel').child('data').limit(10);
+    var smoke = devSensors.child('smoke').child('data').limit(10);
+    var motion = devSensors.child('motion').child('data').limit(10);
+
+    accel.on('value', function(snapshot) {
+
+    });
+
+    child.innerHTML = "<b>" + deviceName + "</b><br />Working<br /><div style='text-align:right;'>          Sensor Activity </br>           Motion Sensor:<span class='inlinesparkline pull-right'>1,4,4,7,5,9,10</span><br/>           Smoke Sensor:<span class='inlinesparkline pull-right'>1,4,4,7,5,9,10</span><br/>           Accel. Sensor:<span class='inlinesparkline pull-right'>1,4,4,7,5,9,10</span></br/>";
     var newChild = parent.appendChild(child);
   }
 
@@ -95,7 +105,7 @@ $(document).ready(function() {
     solRow = solnTable.insertBefore(solRow, solutionsFooter);
 
     solRow.onclick = function() {
-      document.location='customizableWidget.html?q='
+      document.location = ('customizableWidget.html?q=' + solnName);
     };
 
     var mainDetails = document.createElement('div');
