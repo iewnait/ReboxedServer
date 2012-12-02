@@ -219,3 +219,24 @@ break;
       solutionBlockHtml: solutionBlockHtml
     };
   }
+
+  var global_solutionsRef = fbRef.child('solutions');
+  global_solutionsRef.on('value', function(snapshot) {
+    var solutions = snapshot.val();
+
+    updateSolutionsList(solutions);
+  });
+
+  function updateSolutionsList(solutions) {
+    var premadeCol = document.getElementById('premadeCol');
+    $('.premadeRow').remove();
+    for (var solution in solutions) {
+      var div = document.createElement('div');
+      div.className = 'premadeRow';
+
+      var data = solutions[solution][1];
+      div.innerHTML = "Name: " + data.name + '<br />' + data.desc;
+      
+      premadeCol.appendChild(div);
+    }
+  }
