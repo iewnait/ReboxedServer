@@ -30,7 +30,7 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
   <div class="fullScreenContainer container-fluid">
     <div class="mainScreen row-fluid">
 
-      <div class="premadeCol span3">
+      <div id='premadeCol' class="premadeCol span3">
         <div class="titleText">
           <h4 style="color: #333; font-weight: 100;">Preset Solutions <span class="pull-right">[+]</span></h4>
         </div>
@@ -111,9 +111,8 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
 
   <!-- Javascript -->
   <script type="text/javascript" src="external/jQuery/jquery-1.8.3.min.js"></script>
-  <script type="text/javascript">
-    
-  </script>
+  <script type='text/javascript' src='https://static.firebase.com/v0/firebase.js'></script>
+  <script type="text/javascript" src="js/customizableWidget.js"></script>
 </body>
 </html>
 
