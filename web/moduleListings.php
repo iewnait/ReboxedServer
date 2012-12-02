@@ -33,7 +33,7 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
         <div class="titleText">
           <h2 style="color: #333; font-weight: 100;">Dashboard</h2>
         </div>
-        <div class="solutionsTable">
+        <div id="solutions_table" class="solutionsTable">
           <!-- Header -->
           <div class="solutionsHeader container-fluid">
             <div class="headerDetails row-fluid">
@@ -117,7 +117,7 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
             <div class="expand-details">
             </div>
           </div>
-          <div class="solutionsFooter container-fluid">
+          <div id="solutions_footer" class="solutionsFooter container-fluid">
             <div class="footerDetails row-fluid">
               <a class="white" href="#">[+] Add Solution</a>
             </div>
@@ -126,7 +126,7 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
 
         </div>
       </div>
-      <div class="devicesCol span3">
+      <div id="devicesCol" class="devicesCol span3">
         <div>
           <h4 style="color: #333; font-weight:100; padding: 10px;">Device List</h4>
         </div>
@@ -167,6 +167,7 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
 
   <!-- Javascript -->
   <script type="text/javascript" src="external/jQuery/jquery-1.8.3.min.js"></script>
+  <script type='text/javascript' src='https://static.firebase.com/v0/firebase.js'></script>
   <script type="text/javascript" src="js/moduleListings.js"></script>
 </body>
 </html>
