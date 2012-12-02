@@ -178,7 +178,7 @@ a.white:hover {
   border-bottom: 1px solid #484848;
 }
 .moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow:hover {
-  background-color: #bdbdbb;
+  background-color: #DDD;
 }
 .moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow .mainDetails .statusContainer {
   display: inline-block;
@@ -263,4 +263,19 @@ a.white:hover {
   -moz-box-shadow: 0px 3px 2px #000;
   -webkit-box-shadow: 0px 3px 2px #000;
   box-shadow: 0px 3px 2px #000;
+}
+.customizableWidget .fullScreenContainer {
+  min-height: 800px;
+  height: 100%;
+  background-color: #CCC;
+}
+.customizableWidget .mainScreen {
+  background-color: #CCC;
+  min-height: 800px;
+  height: 100%;
+}
+.customizableWidget .mainScreen .optionsCol {
+  min-height: 800px;
+  padding: 10px;
+  padding-top: 40px;
 }
