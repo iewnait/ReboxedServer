@@ -82,7 +82,6 @@ else if($cmd == 'post')
 	} catch (Exception $e2) {
 	}
 	echo 'true';
-	echo "\n\n\n";
 
 	try {
 	// Obtain solutions
@@ -217,6 +216,49 @@ else if($cmd == 'post')
 				break;
 
 			case "phone":
+                                // Check for suppression
+                                if(isset($block->suppression_laststamp))
+                                        $laststamp = $block->suppression_laststamp;
+                                else
+                                        $laststamp = 0;
+
+                                if(time() - $laststamp > $block->suppression_delay) {
+                                        $laststamp = time();
+
+					$twiliosid = 'ACb71a9bf09b05a96cef8e42f0a9c3d543';
+
+					try {
+					echo "twillioing\n\n";
+					$outp = \Httpful\Request::post(
+						'https://ACb71a9bf09b05a96cef8e42f0a9c3d543:003f9c1d26b64121c0e7d59731457d47@api.twilio.com'.
+						'/2010-04-01/Accounts/ACb71a9bf09b05a96cef8e42f0a9c3d543/SMS/Messages.json' ,
+						'From=+14088374856&To=+14086344435&Body='.$block->message ,
+						'application/x-www-form-urlencoded')
+						->send();
+
+					//print_r($outp);
+
+					} catch (Exception $e7) {
+						print_r($e7);
+					}
+				
+
+
+
+                                        // write $laststamp back to user solution block $i suppression_laststamp
+                                        try {
+                                        \Httpful\Request::put(
+                                                $_firebase_uri . 'users/' . $username . '/solutions_active/'
+                                                . $key .'/blocks/'.$i.'/suppression_laststamp/.json',
+                                                '"' . $laststamp . '"')
+                                                ->send();
+                                        }
+                                        catch (Exception $e6) { print_r($e6); }
+
+
+                                }
+
+                                $returnvalue = TRUE;
 
 				break;
 
