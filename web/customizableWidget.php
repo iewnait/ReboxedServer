@@ -1,12 +1,13 @@
 <?php
+/*
 session_start();
 
 if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
   header('Location: loginPage.php');
   exit();
 }
+*/
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,11 +15,12 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
   <!-- Stylesheets -->
   <link rel="stylesheet" type="text/css" href="external/bootstrap/css/bootstrap.min.css"/>
   <link rel="stylesheet" type="text/css" href="css/master.css"/>
+
 </head>
 <body class="customizableWidget">
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
-      <a class="brand" href="#"><img src="images/logosmall.png" style="height: 15px; padding-left: 35px;"/></a>
+      <a class="brand" href="moduleListings.html"><img src="images/logosmall.png" style="height: 15px; padding-left: 35px;"/></a>
       <ul class="nav pull-right">
         <li class="active"><a href="#">Dashboard</a></li>
         <li><a href="#">Profile</a></li>
@@ -96,9 +98,45 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
             Action: Scream like a mofo. Interval.<br/>
             Interval: Beep like fuck.<br/>
           </div>
+          <div class="addRow">
+            </br>
+            <form class="form-horizontal">
+              <div class="control-group">
+                  <label class="control-label" for="inputPassword">Type</label>
+                  <div class="controls">
+                    <select id="block-dropdown-1">
+                    <option>Condition</option>
+                    <option>Action</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="inputPassword">Actions</label>
+                  <div class="controls">
+                    <select id="block-dropdown-2">
+                    <option>Send Message To Phone</option>
+                    <option>Emit Sound</option>
+                    <option>Make Noise</option>
+                  </select>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label" for="inputPassword">Threshold</label>
+                  <div class="controls">
+                    <input style="margin-top: 9px; width:200px;" type="range" min="5" max="150" step="5" value="100">
+                  </div>
+                </div>
+                <div class="control-group">
+                <div class="controls">
+                  <button type="submit" class="btn">Add</button>
+                </div>
+              </div>
+            </form>
 
+          </div>
           <div class="stepFooter">
-            <span class="pull-right">[+] Add Step</span>
+            <a class="white pull-right" style="margin-top:2px; margin-left:4px;">New Component</a>
+            <img class="pull-right" src="images/componentIcon.png" width="25px"/>
           </div>
         </div>
 
@@ -110,10 +148,12 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
 
 
   <!-- Javascript -->
-  <script type="text/javascript" src="external/jQuery/jquery-1.8.3.min.js"></script>
+  <script src="external/jQuery/jquery-1.8.3.min.js"></script>
+  <script type='text/javascript' src='https://static.firebase.com/v0/firebase.js'></script>
+  <script src="js/customizableWidget.js"></script>
   <script type="text/javascript">
-    
   </script>
+  
 </body>
 </html>
 
