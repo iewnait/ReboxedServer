@@ -49,74 +49,7 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
             </div>
           </div>
 
-          <!-- Row -->
-          <div class="solutionsRow container-fluid">
-            <div class="mainDetails row-fluid">
-              <div class="statusContainer span2">
-                <div class="status green">
-                  Running
-                </div>
-              </div>
-              <div class="solutionContainer span5">
-                <div class="solution">
-                  My Movement Detector
-                </div>
-              </div>
-              <div class="deviceContainer span5">
-                <div class="device">
-                  HTC Android 2.5
-                </div>
-              </div>
-            </div>
-            <div class="expand-details">
-            </div>
-          </div>
 
-          <!-- Row -->
-          <div class="solutionsRow container-fluid">
-            <div class="mainDetails row-fluid">
-              <div class="statusContainer span2">
-                <div class="status red">
-                  Stopped
-                </div>
-              </div>
-              <div class="solutionContainer span5">
-                <div class="solution">
-                  Lighting Activator
-                </div>
-              </div>
-              <div class="deviceContainer span5">
-                <div class="device">
-                  Google Nexus Phone
-                </div>
-              </div>
-            </div>
-            <div class="expand-details">
-            </div>
-          </div>
-
-          <!-- Row -->
-          <div class="solutionsRow container-fluid">
-            <div class="mainDetails row-fluid">
-              <div class="statusContainer span2">
-                <div class="status green">
-                  Running
-                </div>
-              </div>
-              <div class="solutionContainer span5">
-                <div class="solution">
-                  Fire Alarm
-                </div>
-              </div>
-              <div class="deviceContainer span5">
-                <div class="device">
-                  HTC Legend
-                </div>
-              </div>
-            </div>
-            <div class="expand-details">
-            </div>
-          </div>
           <div id="solutions_footer" class="solutionsFooter container-fluid">
             <div class="footerDetails row-fluid">
               <a class="white" href="#">[+] Add Solution</a>
@@ -130,26 +63,7 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
         <div>
           <h4 style="color: #333; font-weight:100; padding: 10px;">Device List</h4>
         </div>
-        <div class="deviceDetails green">
-          <b>HTC Android 2.5</b></br>
-          Working</br>
-          <div style="text-align:right;"><a href="#">Location</a></div>
-        </div>
-        <div class="deviceDetails green">
-          <b>HTC Legend</b></br>
-          Working</br>
-          <div style="text-align:right;"><a href="#">Location</a></div>
-        </div>
-        <div class="deviceDetails green">
-          <b>Google Nexus Phone</b></br>
-          Idle</br>
-          <div style="text-align:right;"><a href="#">Location</a></div>
-        </div>
-        <div class="deviceDetails red">
-          <b>Samsung Galaxy</b></br>
-          Not Found</br>
-          <div style="text-align:right;"><a href="#">Location</a></div>
-        </div>
+
       </div>
     </div>
     <div id="poppup_div" class="popup_msg">
