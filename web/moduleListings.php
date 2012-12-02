@@ -52,7 +52,7 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
 
           <div id="solutions_footer" class="solutionsFooter container-fluid">
             <div class="footerDetails row-fluid">
-              <a class="white" href="#">[+] Add Solution</a>
+              <a class="white" href="customizableWidget.html">[+] Add Solution</a>
             </div>
           </div>
 

@@ -49,9 +49,7 @@ $(document).ready(function() {
     var devicesCol = document.getElementById('devicesCol');
     var existingDevices = document.getElementsByClassName('deviceDetails');
 
-    for (i = 0; i < existingDevices; i++) {
-      document.removeChild(existingDevices[0]);
-    }
+    $('.deviceDetails').remove();
     
     for (var deviceName in devices) {
       addDeviceNode(deviceName, devicesCol);
@@ -66,7 +64,7 @@ $(document).ready(function() {
   function addDeviceNode(deviceName, parent) {
     var child = document.createElement('div');
     child.className = "deviceDetails green";
-    child.innerHTML = "<b>" + deviceName + "</b><br />Working<br /><div style='text-align:right;'><a href='#'>Location</a></div>";
+    child.innerHTML = "<b>" + deviceName + "</b><br />Working<br /><div style='text-align:right;'>          Sensor Activity </br>           Motion Sensor:<span class='inlinesparkline pull-right'>1,4,4,7,5,9,10</span><br/>           Heat Sensor:<span class='inlinesparkline pull-right'>1,4,4,7,5,9,10</span><br/>           Wetness Sensor:<span class='inlinesparkline pull-right'>1,4,4,7,5,9,10</span></br/>";
     var newChild = parent.appendChild(child);
   }
 
@@ -76,9 +74,11 @@ $(document).ready(function() {
     var solnTable = document.getElementById('solutions_table');
     var existingRows = document.getElementsByClassName('solutionsRow');
     
-    for (i = existingRows.length - 1; i >= 0; i--) {
-      solnTable.removeChild(existingRows[0]);
-    }
+    $('.solutionsRow').remove();
+
+    // for (i = existingRows.length - 1; i >= 0; i--) {
+    //   solnTable.removeChild(existingRows[0]);
+    // }
 
     var solutions = snapshot.val();
     for (var solution in solutions) {
@@ -91,7 +91,12 @@ $(document).ready(function() {
 
     var solRow = document.createElement('div');
     solRow.className = "solutionsRow container-fluid";
+    solRow.id = solnName;
     solRow = solnTable.insertBefore(solRow, solutionsFooter);
+
+    solRow.onclick = function() {
+      document.location='customizableWidget.html?q='
+    };
 
     var mainDetails = document.createElement('div');
     mainDetails.className = "mainDetails row-fluid";
