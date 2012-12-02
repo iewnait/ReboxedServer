@@ -83,7 +83,7 @@
     solnsRef.child(solnName).child("1").set({desc:solnDesc,name:solnName,device:solnDevice},function(yay){
       console.log(yay);
       if(window.isEditing){
-        document.location="moduleListings.html";
+        document.location="moduleListings.php";
       }else{
         document.location="customizableWidget.html?q="+solnName;
       }
