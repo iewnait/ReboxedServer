@@ -169,5 +169,6 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
   <script type="text/javascript" src="external/jQuery/jquery-1.8.3.min.js"></script>
   <script type='text/javascript' src='https://static.firebase.com/v0/firebase.js'></script>
   <script type="text/javascript" src="js/moduleListings.js"></script>
+  <script type="text/javascript" src="external/sparkline/jquery.sparkline.min.js"></script>
 </body>
 </html>

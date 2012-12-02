@@ -47,11 +47,16 @@ $(document).ready(function() {
 
   function updateDeviceList(devices) {
     var devicesCol = document.getElementById('devicesCol');
-    devicesCol.innerHTML = "<div><h4 style='color: #CCC; padding: 10px;'>Device List</h4></div>";
+    var existingDevices = document.getElementsByClassName('deviceDetails');
 
+    for (i = 0; i < existingDevices; i++) {
+      document.removeChild(existingDevices[0]);
+    }
+    
     for (var deviceName in devices) {
       addDeviceNode(deviceName, devicesCol);
     }
+    $('.inlinesparkline').sparkline('html', {width: '100px'});
   }
 
   function clear(element) {
