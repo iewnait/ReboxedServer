@@ -1,0 +1,137 @@
+.moduleListings{
+
+	.navbar{
+		-moz-box-shadow: 0px 3px 2px #000;
+		-webkit-box-shadow: 0px 3px 2px #000;
+		box-shadow: 0px 3px 2px #000;
+	}
+
+	.fullScreenContainer{
+		min-height:800px;
+		height: 100%;
+		background-color: #1f4770;
+	}
+
+	.mainScreen{
+		background-color: #1f4770;
+		min-height:800px;
+		height: 100%;
+		.solutionsCol{
+			min-height:800px;
+			padding:10px;
+			padding-top: 40px;
+
+			.titleText{
+				padding: 7px;
+			}
+
+			.solutionsTable{
+				.solutionsHeader{
+					color: #CCCCCC;
+					background-color: #346291;
+					border-top-left-radius: 5px;
+					border-top-right-radius: 5px;
+					.headerDetails{
+						margin-top:10px;
+						display: block;
+						.statusContainer{
+							vertical-align: bottom;
+						}
+					}
+				}
+
+				.solutionsRow{
+					background-color: #FFFFFF;
+					border-bottom: 1px solid #346291;
+					&:hover{
+						background-color: #aecdee;
+					}
+					.mainDetails{
+						.statusContainer{
+							display: inline-block;
+							text-align: center;
+							.status{
+								padding: 1px 8px;
+								margin: 10px auto;
+								width: 62px;
+								color: #EEEEEE;
+								text-align: center;
+								border-radius: 5px;
+								&.red{
+									background-color: #c74c3f;
+								}
+								&.blue{
+									background-color: #53a5cb;
+								}
+								&.green{
+									background-color: #8dc73f;
+								}
+								&.yellow{
+									background-color: #d7c949;
+								}
+								&.grey{
+									background-color: #a4a4a4;
+								}
+							}
+						}
+						.solutionContainer{
+							display: inline-block;
+							.solution{
+								padding: 11px;
+							}
+						}
+						.deviceContainer{
+							display: inline-block;
+							.device{
+								padding: 11px;
+							}
+						}
+						
+					}
+				}
+
+				.solutionsFooter{
+					color: #CCCCCC;
+					background-color: #346291;
+					border-bottom-left-radius: 5px;
+					border-bottom-right-radius: 5px;
+					.footerDetails{
+						margin-top:10px;
+						margin-bottom:10px;
+						text-align: right;
+						display: block;
+					}
+				}
+
+			}
+
+		}
+		.devicesCol{
+			background-color: #346291;
+			min-height:800px;
+			padding: 10px;
+			padding-top: 40px;
+			.deviceDetails{
+				margin: 10px;
+				border: 3px solid #CCC;
+				padding: 10px;
+				background-color: #FFF;
+				&.red{
+					border-color: #c74c3f;
+				}
+				&.blue{
+					border-color: #53a5cb;
+				}
+				&.green{
+					border-color: #8dc73f;
+				}
+				&.yellow{
+					border-color: #d7c949;
+				}
+				&.grey{
+					border-color: #a4a4a4;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,209 @@
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+html,
+body {
+  min-width: 800px;
+  min-height: 600px;
+  width: 100%;
+  height: 100%;
+  font-family: Verdana;
+  font-size: 0.9em;
+  font-weight: 100;
+}
+.loginPage .loginPod {
+  background-color: #135282;
+  color: #FFFFFF;
+  border: 1px solid #666666;
+  border-radius: 5px;
+}
+.loginPage .loginPod .headerDiv {
+  padding: 10px 30px;
+}
+.loginPage .loginPod .bodyDiv {
+  padding: 10px 30px;
+  background-color: #FFFFFF;
+  color: #000000;
+}
+.loginPage .loginPod .bodyDiv form {
+  *zoom: 1;
+  margin: 0px;
+}
+.loginPage .loginPod .bodyDiv form:before,
+.loginPage .loginPod .bodyDiv form:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.loginPage .loginPod .bodyDiv form:after {
+  clear: both;
+}
+.loginPage .loginPod .footerDiv {
+  *zoom: 1;
+  padding: 10px 30px;
+}
+.loginPage .loginPod .footerDiv:before,
+.loginPage .loginPod .footerDiv:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.loginPage .loginPod .footerDiv:after {
+  clear: both;
+}
+.radialBackground {
+  background: #429ee5;
+  /* Old browsers */
+
+  background: -moz-radial-gradient(center, ellipse cover, #429ee5 0%, #2989d8 33%, #1e5799 100%);
+  /* FF3.6+ */
+
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #429ee5), color-stop(33%, #2989d8), color-stop(100%, #1e5799));
+  /* Chrome,Safari4+ */
+
+  background: -webkit-radial-gradient(center, ellipse cover, #429ee5 0%, #2989d8 33%, #1e5799 100%);
+  /* Chrome10+,Safari5.1+ */
+
+  background: -o-radial-gradient(center, ellipse cover, #429ee5 0%, #2989d8 33%, #1e5799 100%);
+  /* Opera 12+ */
+
+  background: -ms-radial-gradient(center, ellipse cover, #429ee5 0%, #2989d8 33%, #1e5799 100%);
+  /* IE10+ */
+
+  background: radial-gradient(ellipse at center, #429ee5 0%, #2989d8 33%, #1e5799 100%);
+  /* W3C */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#429ee5', endColorstr='#1e5799', GradientType=1);
+  /* IE6-9 fallback on horizontal gradient */
+
+}
+.moduleListings .navbar {
+  -moz-box-shadow: 0px 3px 2px #000;
+  -webkit-box-shadow: 0px 3px 2px #000;
+  box-shadow: 0px 3px 2px #000;
+}
+.moduleListings .fullScreenContainer {
+  min-height: 800px;
+  height: 100%;
+  background-color: #1f4770;
+}
+.moduleListings .mainScreen {
+  background-color: #1f4770;
+  min-height: 800px;
+  height: 100%;
+}
+.moduleListings .mainScreen .solutionsCol {
+  min-height: 800px;
+  padding: 10px;
+  padding-top: 40px;
+}
+.moduleListings .mainScreen .solutionsCol .titleText {
+  padding: 7px;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsHeader {
+  color: #CCCCCC;
+  background-color: #346291;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsHeader .headerDetails {
+  margin-top: 10px;
+  display: block;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsHeader .headerDetails .statusContainer {
+  vertical-align: bottom;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #346291;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow:hover {
+  background-color: #aecdee;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow .mainDetails .statusContainer {
+  display: inline-block;
+  text-align: center;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow .mainDetails .statusContainer .status {
+  padding: 1px 8px;
+  margin: 10px auto;
+  width: 62px;
+  color: #EEEEEE;
+  text-align: center;
+  border-radius: 5px;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow .mainDetails .statusContainer .status.red {
+  background-color: #c74c3f;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow .mainDetails .statusContainer .status.blue {
+  background-color: #53a5cb;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow .mainDetails .statusContainer .status.green {
+  background-color: #8dc73f;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow .mainDetails .statusContainer .status.yellow {
+  background-color: #d7c949;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow .mainDetails .statusContainer .status.grey {
+  background-color: #a4a4a4;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow .mainDetails .solutionContainer {
+  display: inline-block;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow .mainDetails .solutionContainer .solution {
+  padding: 11px;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow .mainDetails .deviceContainer {
+  display: inline-block;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow .mainDetails .deviceContainer .device {
+  padding: 11px;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsFooter {
+  color: #CCCCCC;
+  background-color: #346291;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsFooter .footerDetails {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: right;
+  display: block;
+}
+.moduleListings .mainScreen .devicesCol {
+  background-color: #346291;
+  min-height: 800px;
+  padding: 10px;
+  padding-top: 40px;
+}
+.moduleListings .mainScreen .devicesCol .deviceDetails {
+  margin: 10px;
+  border: 3px solid #CCC;
+  padding: 10px;
+  background-color: #FFF;
+}
+.moduleListings .mainScreen .devicesCol .deviceDetails.red {
+  border-color: #c74c3f;
+}
+.moduleListings .mainScreen .devicesCol .deviceDetails.blue {
+  border-color: #53a5cb;
+}
+.moduleListings .mainScreen .devicesCol .deviceDetails.green {
+  border-color: #8dc73f;
+}
+.moduleListings .mainScreen .devicesCol .deviceDetails.yellow {
+  border-color: #d7c949;
+}
+.moduleListings .mainScreen .devicesCol .deviceDetails.grey {
+  border-color: #a4a4a4;
+}
