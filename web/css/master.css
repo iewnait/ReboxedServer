@@ -144,13 +144,16 @@ a.white:hover {
   -webkit-box-shadow: 0px 3px 2px #000;
   box-shadow: 0px 3px 2px #000;
 }
+.moduleListings .navbar .navbar-inner {
+  background-color: #5B6258;
+}
 .moduleListings .fullScreenContainer {
   min-height: 800px;
   height: 100%;
-  background-color: #CCC;
+  background-color: #f1f1f1;
 }
 .moduleListings .mainScreen {
-  background-color: #CCC;
+  background-color: #f1f1f1;
   min-height: 800px;
   height: 100%;
 }
@@ -163,11 +166,11 @@ a.white:hover {
   padding: 7px;
 }
 .moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsHeader {
-  color: #CCCCCC;
-  background-color: #484848;
+  color: #333;
+  background-color: #CDE2AA;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  border-top: 2px solid #575757;
+  border-bottom: 1px solid #5B6258;
 }
 .moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsHeader .headerDetails {
   margin-top: 10px;
@@ -179,7 +182,7 @@ a.white:hover {
 .moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow {
   cursor: pointer;
   background-color: #EEE;
-  border-bottom: 1px solid #484848;
+  border-bottom: 1px solid #5B6258;
 }
 .moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsRow.greyOut {
   background-color: #AAA;
@@ -230,9 +233,8 @@ a.white:hover {
   padding: 11px;
 }
 .moduleListings .mainScreen .solutionsCol .solutionsTable .solutionsFooter {
-  border-top: 1px solid #575757;
-  color: #CCCCCC;
-  background-color: #484848;
+  color: #333;
+  background-color: #CDE2AA;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
@@ -311,10 +313,10 @@ a.white:hover {
 }
 .customizableWidget .fullScreenContainer {
   min-height: 800px;
-  background-color: #CCC;
+  background-color: #f1f1f1;
 }
 .customizableWidget .mainScreen {
-  background-color: #CCC;
+  background-color: #f1f1f1;
   min-height: 800px;
 }
 .customizableWidget .mainScreen .optionsCol {
