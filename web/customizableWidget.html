@@ -26,17 +26,19 @@
 				<div class="titleText">
 					<h4 style="color: #333; font-weight: 100;">Preset Solutions <span class="pull-right">[+]</span></h4>
 				</div>
-				<div class="premadeRow">
-					Name: Detect Fire</br>
-					Sends you a text-message if a place is on fire. Will call your handphone for it.
-				</div>
-				<div class="premadeRow">
-					Name: Detect Fire</br>
-					Sends you a text-message if a place is on fire. Will call your handphone for it.
-				</div>
-				<div class="premadeRow">
-					Name: Detect Fire</br>
-					Sends you a text-message if a place is on fire. Will call your handphone for it.
+				<div id="presetSolnContatiner">
+					<div class="premadeRow">
+						Name: Detect Fire</br>
+						Sends you a text-message if a place is on fire. Will call your handphone for it.
+					</div>
+					<div class="premadeRow">
+						Name: Detect Fire</br>
+						Sends you a text-message if a place is on fire. Will call your handphone for it.
+					</div>
+					<div class="premadeRow">
+						Name: Detect Fire</br>
+						Sends you a text-message if a place is on fire. Will call your handphone for it.
+					</div>
 				</div>
 			</div>
 
@@ -58,6 +60,14 @@
 							<textarea id="soln_input_description" rows="5" style="max-width: 350px; min-width: 350px; width:350px; max-height: 200px">Solution description here.</textarea>
 						</div>
 					</div>
+					<div class="control-group" id="devicesDropdownContainer">
+						<label class="control-label" for="inputPassword">Devices</label>
+						<div class="controls">
+							<select id="devicesDropdown">
+							</select>
+						</div>
+					</div>
+					
 					<div class="control-group">
 						<div class="controls">
 							<button type="submit" onclick="solutionSavedPressed()" class="btn">Save</button>
@@ -72,23 +82,6 @@
 					</div>
 					<!-- Iterate These Guys -->
 					<div id="solution-flow-container">
-						<div class="stepRow">
-							<u>Condition</u> <span class="pull-right">x</span><br/>
-							Condition: Heat Sensor Over X<br/>
-							X: 60 Degree Celsius<br/>
-						</div>
-
-						<div class="stepRow">
-							<u>Action</u> <span class="pull-right">x</span><br/>
-							Action: Send Message to Phone<br/>
-							Message: Your house is on fucking fire.<br/>
-						</div>
-
-						<div class="stepRow">
-							<u>Action</u> <span class="pull-right">x</span><br/>
-							Action: Scream like a mofo. Interval.<br/>
-							Interval: Beep like fuck.<br/>
-						</div>
 					</div>
 					<div class="addRow">
 					</br>
@@ -106,9 +99,9 @@
 							<label id="block-label-2" class="control-label" for="inputPassword">Sensor</label>
 							<div class="controls">
 								<select id="block-dropdown-2-condition">
-									<option val="motion">Detection Motion</option>
-									<option val="accel">Detection Earthquake</option>
-									<option val="smoke">Detect smoke</option>
+									<option val="motion">Motion</option>
+									<option val="accel">Earthquake</option>
+									<option val="smoke">Smoke</option>
 								</select>
 								<select id="block-dropdown-2-action" style="display:none">
 									<option val="email">Email</option>

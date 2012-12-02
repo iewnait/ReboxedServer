@@ -3,6 +3,7 @@
   var user_id = "dummy1";
   var userRef = fbRef.child('users').child(""+user_id);
   var solnsRef = fbRef.child('solutions');
+  var devicesRef = userRef.child('devices');
 
   loadPage();
   function loadPage(){
@@ -12,7 +13,7 @@
     if(query){
       var solnRef = solnsRef.child(query);
       if(solnRef){
-        solnRef.on('value', function(solnVal) {
+        solnRef.once('value', function(solnVal) {
           if(solnVal.val()){
             loadEditPage(solnRef,solnVal.val(),query);
           }else{
@@ -30,11 +31,13 @@
     window.isEditing = false;
     console.log("adding");
     $("#edit_solution_label").html("Add Solution");
+    $("#devicesDropdownContainer").hide();
     $("#stepsTable").html("");
   }
   function loadEditPage(solnRef,solnVal,query){
     console.log("editing");
     $("#soln_input_name").val(solnVal["1"].name);
+    $("#soln_input_name").attr("disabled",true);
     $("#soln_input_description").val(solnVal["1"].desc);
     window.isEditing = true;
     window.currentEdit = query;
@@ -50,15 +53,34 @@
       }
     }
     $("#solution-flow-container").html(solnsHtml);
+    devicesRef.once('value', function(devicesVal) {
+
+      devicesHtml ="<option>(none)</option>";
+      console.log(devicesVal.val());
+
+      deviceArray = devicesVal.val();
+      for(var i in deviceArray){
+        deviceName = deviceArray[i].name;
+        devicesHtml +="<option value='"+i+"''>";
+        devicesHtml +=deviceName;
+        devicesHtml +="</option>";
+      }
+      $("#devicesDropdown").html(devicesHtml);
+    });
   }
   function solnExists(solnRef){
 
     return solnRef && solnRef.za && solnRef.ya && solnRef.va;
   }
   function solutionSavedPressed(){
+    console.log("daads");
     var solnName = $("#soln_input_name").val();
     var solnDesc = $("#soln_input_description").html();
-    solnsRef.child(solnName).child("1").set({desc:solnDesc,name:solnName},function(yay){
+    var e = document.getElementById("devicesDropdown");
+    var solnDevice = (!isEditing)? null: e.options[e.selectedIndex].value;
+        
+
+    solnsRef.child(solnName).child("1").set({desc:solnDesc,name:solnName,device:solnDevice},function(yay){
       console.log(yay);
       if(window.isEditing){
         document.location="moduleListings.html";
@@ -71,7 +93,7 @@
   function getQuery(){
     var query = document.location.search; 
     if(query && query.length && query.length >3){
-      return query.substring(3);
+      return decodeURIComponent(query.substring(3));
     }else return false;
   }
 
@@ -186,28 +208,28 @@
       var html ='<div class="stepRow">';
       switch (block_type){
         case "motion":
-        var gtltHtml = (params.gtlt=="gt")?"faster":"slower";
-        html +='<u>Condition</u> <span class="pull-right">x</span><br/>'+
+        var gtltHtml = (params.gtlt=="gt")?"more":"less";
+        html +='<img src="images/questIcon.png"><u>Condition</u> <span class="pull-right">x</span><br/>'+
         'Motion Sensor detects motion '+gtltHtml+' than '+params.percentage+'%<br/>';
         break;
         case "accel":
         var gtltHtml = (params.gtlt=="gt")?"more":"less";
-        html +='<u>Condition</u> <span class="pull-right">x</span><br/>'+
-        'Acceleration Sensor detects acceleration '+gtltHtml+' than '+params.acceleration+'%<br/>';
+        html +='<img src="images/questIcon.png"><u>Condition</u> <span class="pull-right">x</span><br/>'+
+        'Acceleration Sensor detects acceleration '+gtltHtml+' than '+params.acceleration+'ms^-2<br/>';
         break;
         case "smoke":
         var gtltHtml = (params.gtlt=="gt")?"more":"less";
-        html +='<u>Condition</u> <span class="pull-right">x</span><br/>'+
+        html +='<img src="images/questIcon.png"><u>Condition</u> <span class="pull-right">x</span><br/>'+
         'Smoke Sensor detects smoke '+gtltHtml+' than '+params.percentage+'%<br/>';
-break;
+        break;
         case "email":
-        html +='<u>Action</u> <span class="pull-right">x</span><br/>'+
+        html +='<img src="images/cogIcon.png"><u>Action</u> <span class="pull-right">x</span><br/>'+
         'Email '+params.address+' with \"'+params.subject+'\":\"'+params.content+'\" every '+params.suppression_delay+' seconds<br/>';
-break;
+        break;
         case "phone":
-        html +='<u>Action</u> <span class="pull-right">x</span><br/>'+
+        html +='<img src="images/cogIcon.png"><u>Action</u> <span class="pull-right">x</span><br/>'+
         'SMS '+params.number+' with \"'+params.message+'\" every '+params.suppression_delay+' seconds<br/>';
-break;
+        break;
         default:break;
       }
       html += "</div>";
