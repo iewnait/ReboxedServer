@@ -1,0 +1,21 @@
+<?php
+
+$rebox_components['accel'] = array(
+	'name' => 'Accelerometer',
+	
+	'description' => 'Template',
+	
+	'type' => 'condition',
+	
+	'params' =>
+		array('gtlt', 'velocity'),
+	
+	'gui' =>
+		'something like "Activate when (select) &gt;&lt; (inputbox) 20 m/s',
+	
+	'execute' =>
+		function ($paramlist) {
+			// todo
+			return true;
+		}
+);
