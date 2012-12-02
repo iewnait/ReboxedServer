@@ -94,6 +94,10 @@ $(document).ready(function() {
     solRow.id = solnName;
     solRow = solnTable.insertBefore(solRow, solutionsFooter);
 
+    solRow.onclick = function() {
+      document.location='customizableWidget.html?q='
+    };
+
     var mainDetails = document.createElement('div');
     mainDetails.className = "mainDetails row-fluid";
     mainDetails = solRow.appendChild(mainDetails);
