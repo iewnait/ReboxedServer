@@ -65,18 +65,19 @@ $(document).ready(function() {
   }
 
   var solutionsRef = userRef.child("solutions_active");
-  // solutionsRef.on('value', function(snapshot) {
-  //   var solutions = snapshot.val();
 
-  //   updateSolutionsList(solutions);
-  // });
-
-  solutionsRef.on('child_added', function(snapshot) {
-    var solnRef = snapshot.val();
-    var solnName = snapshot.name();
+  solutionsRef.on('value', function(snapshot) {
     var solnTable = document.getElementById('solutions_table');
+    var existingRows = document.getElementsByClassName('solutionsRow');
+    
+    for (i = existingRows.length - 1; i >= 0; i--) {
+      solnTable.removeChild(existingRows[0]);
+    }
 
-    insertSolution(solnRef, solnName, solnTable);
+    var solutions = snapshot.val();
+    for (var solution in solutions) {
+      insertSolution(solutions[solution], solution, solnTable);
+    }
   });
 
   function insertSolution(solnRef, solnName, solnTable) {
