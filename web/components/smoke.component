@@ -28,7 +28,7 @@ $rebox_components['motion'] = array(
 			
 			// ->autoParse(false)
 			
-			$laststamp = $laststamp['body'];
+			$laststamp = $laststamp->body;
 				
 			// get last sensor value
 			
@@ -36,7 +36,7 @@ $rebox_components['motion'] = array(
 				$paramlist['_firebase_uri'] . 'users/' . $paramlist['username'] . '/devices/' . $paramlist['devicename'] .
 				'/sensors/motion/data/' . $laststamp . '.json')
                 ->send();
-			$lastvalue = $lastvalue['body'];
+			$lastvalue = $lastvalue->body;
 			
 			if($paramlist['gtlt'] == 'gt') {
 				if($lastvalue > $percentage)
