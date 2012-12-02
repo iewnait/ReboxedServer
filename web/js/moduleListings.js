@@ -66,7 +66,7 @@ $(document).ready(function() {
   function addDeviceNode(deviceName, parent) {
     var child = document.createElement('div');
     child.className = "deviceDetails green";
-    child.innerHTML = "<b>" + deviceName + "</b><br />Working<br /><div style='text-align:right;'><a href='#'>Location</a></div>";
+    child.innerHTML = "<b>" + deviceName + "</b><br />Working<br /><div style='text-align:right;'>Sensor Activity </br>           Motion Sensor:<span class='inlinesparkline pull-right'>1,4,4,7,5,9,10</span><br/>           Heat Sensor:<span class='inlinesparkline pull-right'>1,4,4,7,5,9,10</span><br/>           Wetness Sensor:<span class='inlinesparkline pull-right'>1,4,4,7,5,9,10</span></br/>";
     var newChild = parent.appendChild(child);
   }
 
