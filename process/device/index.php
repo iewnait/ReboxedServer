@@ -18,6 +18,8 @@ $cmd = $_POST['cmd'];
 $username = $_POST['user'];
 $devicename = $_POST['device'];
 
+$lastsensor = array();
+
 if($cmd == 'auth')
 {
 	if(!isset($_POST['pass'])
@@ -71,9 +73,55 @@ else if($cmd == 'post')
 				} catch(Exception $e1) {
 					// dont care
 				}
+			
+				$lastsensor[$key] = $value;
 			}
 		}
 	} catch (Exception $e2) {
 	}
 	echo 'true';
+	echo "\n\n\n";
+
+	try {
+	// Obtain solutions
+	$solutions = \Httpful\Request::get(
+        	$_firebase_uri . 'users/' . $username . '/solutions_active.json')
+		->autoParse(FALSE)
+	        ->send();
+	$solutions = json_decode($solutions->body);
+
+	foreach($solutions as $key => $solution) {
+
+		if($solution->status <> 'active') continue;
+
+		try {
+
+		// retrieve solution via key
+		$solution = \Httpful\Request::get(
+	                $_firebase_uri . 'solutions/' . $key . '/1/.json')
+	                ->send();
+
+		// get array of blocks
+		$solution = $solution->body->blocks;
+
+		$numblocks = sizeof($solution);
+
+		for($i = 0; $i < $numblocks; ++$i) {
+			$block = $solution[$i];
+			
+		}
+
+		} catch(Exception $e4) {
+			// cant find? ignore
+		}
+
+
+	}
+
+
+	} catch(Exception $e3) {
+	}
+
+
 }
+
