@@ -65,16 +65,37 @@ $(document).ready(function() {
     var child = document.createElement('div');
     child.className = "deviceDetails green";
 
+    var accelString  = null;
+    var smokeString = null;
+    var motionString = null;
+
     var devSensors = devicesRef.child(deviceName).child('sensors');
     var accel = devSensors.child('accel').child('data').limit(10);
     var smoke = devSensors.child('smoke').child('data').limit(10);
     var motion = devSensors.child('motion').child('data').limit(10);
 
     accel.on('value', function(snapshot) {
-
+      var accelData = snapshot.val();
+      
+      accelString = valuesToString(accelData);
     });
 
-    child.innerHTML = "<b>" + deviceName + "</b><br />Working<br /><div style='text-align:right;'>          Sensor Activity </br>           Motion Sensor:<span class='inlinesparkline pull-right'>1,4,4,7,5,9,10</span><br/>           Smoke Sensor:<span class='inlinesparkline pull-right'>1,4,4,7,5,9,10</span><br/>           Accel. Sensor:<span class='inlinesparkline pull-right'>1,4,4,7,5,9,10</span></br/>";
+    motion.on('value', function(snapshot) {
+      var motionData = snapshot.val();
+
+      motionString = valuesToString(motionData);
+    });
+
+    smoke.on('value', function(snapshot) {
+      var smokeData = snapshot.val();
+
+      smokeString = valuesToString(smokeData);
+    });
+    // console.log(smokeString);
+    // console.log(motionString);
+    // console.log(accelString);
+
+    child.innerHTML = "<b>" + deviceName + "</b><br />Working<br /><div style='text-align:right;'>          Sensor Activity </br>           Motion Sensor:<span class='inlinesparkline pull-right'>" + motionString + "</span><br/>           Smoke Sensor:<span class='inlinesparkline pull-right'>" + smokeString + "</span><br/>           Accel. Sensor:<span class='inlinesparkline pull-right'>"+ accelString+"</span></br/>";
     var newChild = parent.appendChild(child);
   }
 
@@ -95,6 +116,18 @@ $(document).ready(function() {
       insertSolution(solutions[solution], solution, solnTable);
     }
   });
+
+  function valuesToString(data) {
+    // console.log(data);
+
+    var str = "";
+    for (var k in data) {
+       (function (k) {
+        str += data[k] + ',';
+       })(k); 
+    }
+    return str;
+  }
 
   function insertSolution(solnRef, solnName, solnTable) {
     var solutionsFooter = document.getElementById('solutions_footer');

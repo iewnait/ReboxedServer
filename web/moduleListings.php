@@ -23,13 +23,13 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
         <li class="active"><a href="#">Dashboard</a></li>
         <li><a href="#">Profile</a></li>
         <li><a href="#">Help</a></li>
-        <li class=""><a href="#">Logout</a></li>
+        <li class=""><a href="logout.php">Logout</a></li>
       </ul>
     </div>
   </div>
   <div class="fullScreenContainer container-fluid">
     <div class="mainScreen row-fluid">
-      <div class="solutionsCol span9">
+      <div class="solutionsCol span8">
         <div class="titleText">
           <h2 style="color: #333; font-weight: 100;">Dashboard</h2>
         </div>
@@ -59,7 +59,7 @@ if (!isset($_SESSION['isLoggedIn']) || !$_SESSION['isLoggedIn']) {
 
         </div>
       </div>
-      <div id="devicesCol" class="devicesCol span3">
+      <div id="devicesCol" class="devicesCol span4">
         <div>
           <h4 style="color: #333; font-weight:100; padding: 10px;">Device List</h4>
         </div>
